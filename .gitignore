@@ -11,6 +11,10 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+*stacktrace.out
+
+# mac
+.DS_Store
 
 # YARD artifacts
 .yardoc
