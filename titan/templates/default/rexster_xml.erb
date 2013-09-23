@@ -96,20 +96,20 @@
 
 				<!-- index engine start -->
 				<!-- text -->
-				<storage.index.ttx-text.backend>elasticsearch</storage.index.ttx-text.backend>
-				<storage.index.ttx-text.client-only>true</storage.index.ttx-text.client-only>
-				<storage.index.ttx-text.local-mode>false</storage.index.ttx-text.local-mode>
-				<storage.index.ttx-text.index-name>ttx-text-<%= node['titan']['runtime_env'] %></storage.index.ttx-text.index-name>
-				<storage.index.ttx-text.cluster-name>ttx-es-<%= node['titan']['runtime_env'] %></storage.index.ttx-text.cluster-name>
-				<storage.index.ttx-text.hostname><%= node['titan']['es']['host_name'] %></storage.index.ttx-text.hostname>
+				<storage.index.text.backend>elasticsearch</storage.index.text.backend>
+				<storage.index.text.client-only>true</storage.index.text.client-only>
+				<storage.index.text.local-mode>false</storage.index.text.local-mode>
+				<storage.index.text.index-name>ttx-text-<%= node['titan']['runtime_env'] %></storage.index.text.index-name>
+				<storage.index.text.cluster-name>ttx-es-<%= node['titan']['runtime_env'] %></storage.index.text.cluster-name>
+				<storage.index.text.hostname><%= node['titan']['es']['host_name'] %></storage.index.text.hostname>
 
 				<!-- geo -->
-				<storage.index.ttx-geo.backend>elasticsearch</storage.index.ttx-geo.backend>
-				<storage.index.ttx-geo.client-only>true</storage.index.ttx-geo.client-only>
-				<storage.index.ttx-geo.local-mode>false</storage.index.ttx-geo.local-mode>
-				<storage.index.ttx-geo.index-name>ttx-geo-<%= node['titan']['runtime_env'] %></storage.index.ttx-geo.index-name>
-				<storage.index.ttx-text.cluster-name>ttx-es-<%= node['titan']['runtime_env'] %></storage.index.ttx-text.cluster-name>
-				<storage.index.ttx-geo.hostname><%= node['titan']['es']['host_name'] %></storage.index.ttx-geo.hostname>
+				<storage.index.geo.backend>elasticsearch</storage.index.geo.backend>
+				<storage.index.geo.client-only>true</storage.index.geo.client-only>
+				<storage.index.geo.local-mode>false</storage.index.geo.local-mode>
+				<storage.index.geo.index-name>ttx-geo-<%= node['titan']['runtime_env'] %></storage.index.geo.index-name>
+				<storage.index.geo.cluster-name>ttx-es-<%= node['titan']['runtime_env'] %></storage.index.geo.cluster-name>
+				<storage.index.geo.hostname><%= node['titan']['es']['host_name'] %></storage.index.geo.hostname>
 
 				<!-- index engine end -->
 
