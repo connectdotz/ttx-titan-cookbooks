@@ -22,14 +22,14 @@ titan_home = "#{node['titan']['titan_home']}"
 template "rexster_xml" do
   path "#{rexster_home}/rexster.xml"
   source "rexster_xml.erb"
-  owner 'root' and mode 0755
+  owner 'root' and mode 0644
   action :nothing
 end
 
 template "log4j_properties" do
   path "#{rexster_home}/log4j.properties"
   source "log4j_properties.erb"
-  owner 'root' and mode 0755
+  owner 'root' and mode 0644
   action :nothing
 end
 
@@ -49,10 +49,10 @@ bash "install_titan" do
     mkdir -p #{base_dir}
     cd #{base_dir}
 
-    ###### download titan components
+    ###### download titan components #####
     echo "installing #{node['titan']['rexster_path']} ..."
     zip_file="rexster-server-#{node['titan']['rexster_version']}"
-    if [ -d "#{node['titan']['rexster_path']" ]; then
+    if [ ! -d "#{node['titan']['rexster_path']}" ]; then
         curl -# -L -k "http://tinkerpop.com/downloads/rexster/$zip_file.zip" > $zip_file.zip
         unzip $zip_file.zip 
         ln -s $zip_file #{node['titan']['rexster_path']}
@@ -63,7 +63,7 @@ bash "install_titan" do
 
     echo "installing rexster-console ..."
     zip_file2="rexster-console-#{node['titan']['rexster_version']}"
-    if [ -d "rexster-console" ]; then
+    if [ ! -d "rexster-console" ]; then
     	curl -# -L -k "http://tinkerpop.com/downloads/rexster/$zip_file2.zip" > $zip_file2.zip
     	unzip $zip_file2.zip 
     	ln -s $zip_file2 rexster-console
@@ -74,7 +74,7 @@ bash "install_titan" do
 
     echo "installing titan-hbase ..."
     zip_file3="titan-hbase-#{node['titan']['titan_version']}"
-    if [ -d "#{node['titan']['titan_path']" ]; then
+    if [ ! -d "#{node['titan']['titan_path']}" ]; then
     	curl -# -L -k "http://s3.thinkaurelius.com/downloads/titan/$zip_file3.zip" > $zip_file3.zip
     	unzip $zip_file3.zip 
     	ln -s $zip_file3 #{node['titan']['titan_path']}

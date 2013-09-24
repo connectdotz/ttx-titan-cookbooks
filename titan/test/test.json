@@ -1,6 +1,6 @@
 {
     "run_list": [ 
-		  "recipe[titan::stop_rexster]"
+		  "recipe[titan::setup]"
     ],
     "titan" : {
 	"base_dir" : "/opt/chef-test3",
