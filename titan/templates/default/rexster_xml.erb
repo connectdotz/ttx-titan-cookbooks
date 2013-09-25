@@ -85,13 +85,13 @@
 		</graph>
 
 		<graph>
-			<graph-name>ttx-alpha</graph-name>
-			<graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration
-			</graph-type>
+			<graph-name>ttx-<%= node['titan']['runtime_env'] %></graph-name>
+			<graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration</graph-type>
 			<graph-location></graph-location>
 			<graph-read-only>false</graph-read-only>
 			<properties>
                 		<storage.backend>hbase</storage.backend>
+				<storage.hostname><%= node['titan']['hbase']['host_name'] %></storage.hostname>
 				<storage.tablename>ttx-<%= node['titan']['runtime_env'] %></storage.tablename>
 
 				<!-- index engine start -->

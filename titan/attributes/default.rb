@@ -15,7 +15,7 @@
 default['titan']['titan_version'] = '0.3.2'
 default['titan']['rexster_version'] = '2.3.0'
 default['titan']['runtime_env'] = 'beta'
-default['titan']['base_dir'] = '/opt/chef-test2'
+default['titan']['base_dir'] = '/opt/thingtrix/titan'
 default['titan']['rexster_path'] = 'rexster-server'
 default['titan']['titan_path'] = 'titan'
 
@@ -33,3 +33,6 @@ node.normal['titan']['titan_home'] = "#{node['titan']['base_dir']}/#{node['titan
 
 # es
 default['titan']['es']['host_name'] = '127.0.0.1'
+
+#hbase
+default['titan']['hbase']['host_name'] = '127.0.0.1'
