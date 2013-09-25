@@ -5,9 +5,10 @@
 # start rexster
 #
 
+include_recipe "titan::rexster_service"
 
-execute "stop-rexster" do
-command "cd #{node['titan']['rexster_home']} && bin/rexster.sh --stop"
+execute 'stop_rexster' do
+    command '/bin/true'
+    notifies :stop, resources(:service => 'rexster')
 end
-
 

@@ -5,12 +5,14 @@
 # start rexster
 #
 
-debug_flag = ( node['titan']['debug'] == true ? "-d" : "" )
-output = "#{node['titan']['log_dir']}/rexster.out" 
+include_recipe "titan::rexster_service"
 
-execute "start-rexster" do
-command "cd #{node['titan']['rexster_home']} && nohup bin/rexster.sh --start \"#{debug_flag}\" > \"#{output}\" 2>&1 &"
-environment ({ "JAVA_OPTIONS" => "#{node['titan']['rexster_java_options']}"} )
+debug_flag = ( node['titan']['debug'] == true ? "-d" : "" )
+
+execute 'start_rexster' do
+    command '/bin/true'
+    environment ({ "$REXTER_SERVICE_DEBUG" => "#{debug_flag}"} )
+    notifies :restart, resources(:service => 'rexster')
 end
 
 
