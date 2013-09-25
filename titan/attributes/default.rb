@@ -21,7 +21,7 @@ default['titan']['titan_path'] = 'titan'
 
 # execution tuning
 default['titan']['rexster_java_options'] = '-Xms64m -Xmx512m'
-default['titan']['rexster_start_delay'] = '0'
+default['titan']['rexster_start_delay'] = 0
 
 # titan logging and debugging
 default['titan']['log_dir'] = '/var/log/titan'
