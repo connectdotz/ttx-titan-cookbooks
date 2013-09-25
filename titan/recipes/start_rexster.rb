@@ -9,8 +9,9 @@ include_recipe "titan::rexster_service"
 
 debug_flag = ( node['titan']['debug'] == true ? "-d" : "" )
 
+# execute delay
 execute 'start_rexster' do
-    command '/bin/true'
+    command "sleep #{node['titan']['rexster_start_delay']}"
     environment ({ "$REXTER_SERVICE_DEBUG" => "#{debug_flag}"} )
     notifies :restart, resources(:service => 'rexster')
 end
