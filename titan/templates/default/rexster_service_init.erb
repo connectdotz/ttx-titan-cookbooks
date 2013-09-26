@@ -42,7 +42,7 @@ start() {
     fi
     export JAVA_OPTIONS
     echo "Starting Rexster server...($REXTER_SERVICE_DEBUG)"
-    su -c "cd \"$REXSTER_DIR\"; /usr/bin/nohup ./bin/rexster.sh -s $REXTER_SERVICE_DEBUG 1>$REXSTER_LOG_DIR/service.log 2>$REXSTER_LOG_DIR/service.err &" $REXSTER_USER
+    su -c "cd \"$REXSTER_DIR\"; /usr/bin/nohup ./bin/rexster.sh -s $REXTER_SERVICE_DEBUG 1>$REXSTER_LOG_DIR/rexster-service.out 2>$REXSTER_LOG_DIR/rexster-service.err &" $REXSTER_USER
 }
 
 stop() {
@@ -53,7 +53,7 @@ stop() {
         return 0
     fi
     echo "Stopping Rexster server..."
-    su -c "cd \"$REXSTER_DIR\"; /usr/bin/nohup ./bin/rexster.sh -x 1>$REXSTER_LOG_DIR/service-stop.log 2>$REXSTER_LOG_DIR/service-stop.err &" $REXSTER_USER
+    su -c "cd \"$REXSTER_DIR\"; /usr/bin/nohup ./bin/rexster.sh -x 1>$REXSTER_LOG_DIR/rexster-service-stop.out 2>$REXSTER_LOG_DIR/rexster-service-stop.err &" $REXSTER_USER
 }
 
 status() {

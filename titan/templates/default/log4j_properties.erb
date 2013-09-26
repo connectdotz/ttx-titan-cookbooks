@@ -11,7 +11,7 @@ log4j.appender.stdout.layout.ConversionPattern=[%t]:[%p] %C{1} - %m%n
 
 log4j.appender.fileAppender=org.apache.log4j.DailyRollingFileAppender
 log4j.appender.fileAppender.File=<%= node['titan']['log_dir'] %>/rexster.log
-log4j.appender.fileAppender.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.fileAppender.DatePattern='.'yyyy-MM-dd
 log4j.appender.fileAppender.layout=org.apache.log4j.PatternLayout
 log4j.appender.fileAppender.layout.ConversionPattern=%d{HH:mm:ss,SSS} [%t]:[%p] %C{1} - %m%n
 log4j.appender.fileAppender.MaxBackupIndex = 7
