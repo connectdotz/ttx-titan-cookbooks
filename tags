@@ -1,0 +1,254 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Aws	aws/libraries/ec2.rb	/^  module Aws$/;"	m	class:Opscode
+Base	windows/libraries/feature_base.rb	/^      module Base$/;"	m	class:Chef.Provider.WindowsFeature
+Chef	java/libraries/helpers.rb	/^class Chef$/;"	c
+Chef	windows/libraries/feature_base.rb	/^class Chef$/;"	c
+Chef	windows/libraries/windows_privileged.rb	/^class Chef$/;"	c
+Ec2	aws/libraries/ec2.rb	/^    module Ec2$/;"	m	class:Opscode.Aws
+Extensions	elasticsearch/libraries/create_ebs.rb	/^module Extensions$/;"	m
+Extensions	elasticsearch/libraries/install_plugin.rb	/^module Extensions$/;"	m
+Extensions	elasticsearch/libraries/print_value.rb	/^module Extensions$/;"	m
+Extensions	elasticsearch/libraries/search_for_nodes.rb	/^module Extensions$/;"	m
+Helper	windows/libraries/helper.rb	/^  module Helper$/;"	m	class:Windows
+Helpers	java/files/default/tests/minitest/support/helpers.rb	/^module Helpers$/;"	m
+Java	java/files/default/tests/minitest/support/helpers.rb	/^  module Java$/;"	m	class:Helpers
+OpenJDK	java/libraries/helpers.rb	/^  class OpenJDK$/;"	c	class:Opscode
+Opscode	aws/libraries/ec2.rb	/^module Opscode$/;"	m
+Opscode	java/libraries/helpers.rb	/^module Opscode$/;"	m
+Provider	windows/libraries/feature_base.rb	/^  class Provider$/;"	c	class:Chef
+Recipe	java/libraries/helpers.rb	/^  class Recipe$/;"	c	class:Chef
+Registry	windows/libraries/registry_helper.rb	/^module Registry$/;"	m
+RegistryHelper	windows/libraries/registry_helper.rb	/^  module RegistryHelper$/;"	m	class:Windows
+Templates	elasticsearch/libraries/print_value.rb	/^  module Templates$/;"	m	class:Extensions
+Version	windows/libraries/version.rb	/^  class Version$/;"	c	class:Windows
+Windows	windows/libraries/helper.rb	/^module Windows$/;"	m
+Windows	windows/libraries/registry_helper.rb	/^module Windows$/;"	m
+Windows	windows/libraries/version.rb	/^module Windows$/;"	m
+WindowsFeature	windows/libraries/feature_base.rb	/^    class WindowsFeature$/;"	c	class:Chef.Provider
+WindowsPrivileged	windows/libraries/windows_privileged.rb	/^  class WindowsPrivileged$/;"	c	class:Chef
+WindowsRebootHandler	windows/files/default/handlers/windows_reboot_handler.rb	/^class WindowsRebootHandler < Chef::Handler$/;"	c
+action_autogen	ark/providers/default.rb	/^def action_autogen$/;"	f
+action_build_with_make	ark/providers/default.rb	/^def action_build_with_make$/;"	f
+action_cherry_pick	ark/providers/default.rb	/^def action_cherry_pick$/;"	f
+action_cherry_pick_contents	ark/providers/default.rb	/^def action_cherry_pick_contents(full_path)$/;"	f
+action_configure	ark/providers/default.rb	/^def action_configure$/;"	f
+action_create	windows/providers/shortcut.rb	/^def action_create$/;"	f
+action_download	ark/providers/default.rb	/^def action_download$/;"	f
+action_dump	ark/providers/default.rb	/^def action_dump$/;"	f
+action_dump_contents	ark/providers/default.rb	/^def action_dump_contents$/;"	f
+action_install	ark/providers/default.rb	/^def action_install$/;"	f
+action_install	windows/libraries/feature_base.rb	/^        def action_install$/;"	f	class:Chef.Provider.WindowsFeature.Base
+action_install_binaries	ark/providers/default.rb	/^def action_install_binaries$/;"	f
+action_install_with_make	ark/providers/default.rb	/^def action_install_with_make$/;"	f
+action_link_paths	ark/providers/default.rb	/^def action_link_paths$/;"	f
+action_put	ark/providers/default.rb	/^def action_put$/;"	f
+action_remove	windows/libraries/feature_base.rb	/^        def action_remove$/;"	f	class:Chef.Provider.WindowsFeature.Base
+action_set_owner	ark/providers/default.rb	/^def action_set_owner(path)$/;"	f
+action_setup_py_build	ark/providers/default.rb	/^def action_setup_py_build$/;"	f
+action_setup_py_install	ark/providers/default.rb	/^def action_setup_py_install$/;"	f
+action_unpack	ark/providers/default.rb	/^def action_unpack$/;"	f
+address	aws/providers/elastic_ip.rb	/^def address(ip)$/;"	f
+adjust_privilege	windows/libraries/windows_privileged.rb	/^    def adjust_privilege(token, priv, attr=0)$/;"	f	class:Chef.WindowsPrivileged
+already_mounted	aws/providers/ebs_raid.rb	/^def already_mounted(mount_point)$/;"	f
+append_to_env_path	ark/providers/default.rb	/^def append_to_env_path$/;"	f	class:unzip_cherry_pick
+arch_dir	java/libraries/helpers.rb	/^    def arch_dir$/;"	f	class:Opscode.OpenJDK
+assemble_raid	aws/providers/ebs_raid.rb	/^def assemble_raid(raid_dev, devices_string)$/;"	f
+attach	aws/providers/elastic_ip.rb	/^def attach(ip, timeout)$/;"	f
+attach_volume	aws/providers/ebs_raid.rb	/^def attach_volume(disk_dev, volume_id)$/;"	f
+attach_volume	aws/providers/ebs_volume.rb	/^def attach_volume(volume_id, instance_id, device, timeout)$/;"	f
+automatic_managed?	windows/providers/pagefile.rb	/^def automatic_managed?$/;"	f
+cached_file	windows/libraries/helper.rb	/^    def cached_file(source, checksum=nil, windows_path=true)$/;"	f	class:Windows.Helper
+candidate_version	windows/providers/package.rb	/^def candidate_version$/;"	f
+check_for_errors	windows/providers/pagefile.rb	/^def check_for_errors(stderr)$/;"	f
+chef_mkdir_p	ark/providers/default.rb	/^def chef_mkdir_p(dir)$/;"	f	class:unzip_cherry_pick
+collect_args	chef_handler/providers/default.rb	/^def collect_args(resource_args = [])$/;"	f
+compare_shortcut	windows/providers/shortcut.rb	/^def compare_shortcut$/;"	f
+correct_device_map	aws/providers/ebs_raid.rb	/^def correct_device_map(device_map)$/;"	f
+create	windows/providers/pagefile.rb	/^def create(pagefile)$/;"	f
+create_ebs	elasticsearch/libraries/create_ebs.rb	/^  def create_ebs device, params={}$/;"	f	class:Extensions
+create_key	windows/libraries/registry_helper.rb	/^    def create_key(path)$/;"	f	class:Windows.RegistryHelper
+create_printer	windows/providers/printer.rb	/^def create_printer$/;"	f
+create_printer_port	windows/providers/printer_port.rb	/^def create_printer_port$/;"	f
+create_raid_disks	aws/providers/ebs_raid.rb	/^def create_raid_disks(mount_point, mount_point_owner, mount_point_group, mount_point_mode, num_disks, disk_size,$/;"	f
+create_volume	aws/providers/ebs_volume.rb	/^def create_volume(snapshot_id, size, availability_zone, timeout, volume_type, piops)$/;"	f
+current_installed_version	windows/providers/package.rb	/^def current_installed_version$/;"	f
+currently_attached_volume	aws/providers/ebs_volume.rb	/^def currently_attached_volume(instance_id, device)$/;"	f
+delete	windows/providers/pagefile.rb	/^def delete(pagefile)$/;"	f
+delete_printer	windows/providers/printer.rb	/^def delete_printer$/;"	f
+delete_printer_port	windows/providers/printer_port.rb	/^def delete_printer_port$/;"	f
+delete_value	windows/libraries/registry_helper.rb	/^    def delete_value(path,values)$/;"	f	class:Windows.RegistryHelper
+detach	aws/providers/elastic_ip.rb	/^def detach(ip, timeout)$/;"	f
+detach_volume	aws/providers/ebs_volume.rb	/^def detach_volume(volume_id, timeout)$/;"	f
+determine_volume	aws/providers/ebs_volume.rb	/^def determine_volume$/;"	f
+device_map_to_string	aws/providers/ebs_raid.rb	/^def device_map_to_string(device_map)$/;"	f
+dism	windows/providers/feature_dism.rb	/^def dism$/;"	f
+do_s3_file	aws/providers/s3_file.rb	/^def do_s3_file(resource_action)$/;"	f
+download_direct_from_oracle	java/providers/ark.rb	/^def download_direct_from_oracle(tarball_name, new_resource)$/;"	f
+ec2	aws/libraries/ec2.rb	/^      def ec2$/;"	f	class:Opscode.Aws
+elb	aws/providers/elastic_lb.rb	/^def elb$/;"	f
+enabled?	chef_handler/providers/default.rb	/^def enabled?(type)$/;"	f
+ensure_hive_unloaded	windows/libraries/registry_helper.rb	/^    def ensure_hive_unloaded(hive_loaded=false)$/;"	f	class:Windows.RegistryHelper
+ensure_rubyzip_gem_installed	windows/providers/zipfile.rb	/^def ensure_rubyzip_gem_installed$/;"	f
+exists?	windows/providers/pagefile.rb	/^def exists?(pagefile)$/;"	f
+expand_cmd	ark/providers/default.rb	/^def expand_cmd$/;"	f
+expand_options	windows/providers/package.rb	/^def expand_options(options)$/;"	f
+extract_installed_packages_from_key	windows/providers/package.rb	/^def extract_installed_packages_from_key(hkey = ::Win32::Registry::HKEY_LOCAL_MACHINE, desired = ::Win32::Registry::Constants::KEY_READ)$/;"	f
+find_free_md_device_name	aws/providers/ebs_raid.rb	/^def find_free_md_device_name$/;"	f
+find_free_volume_device_prefix	aws/providers/ebs_raid.rb	/^def find_free_volume_device_prefix$/;"	f
+find_matching_nodes	elasticsearch/libraries/search_for_nodes.rb	/^  def find_matching_nodes(query = nil)$/;"	f	class:Extensions.search_for_nodes
+find_md_device	aws/providers/ebs_raid.rb	/^def find_md_device$/;"	f
+find_snapshot_id	aws/libraries/ec2.rb	/^      def find_snapshot_id(volume_id="", find_most_recent=false)$/;"	f	class:Opscode.Aws.Ec2
+get_hive	windows/libraries/registry_helper.rb	/^    def get_hive(path)$/;"	f	class:Windows.RegistryHelper
+get_hive_name	windows/libraries/registry_helper.rb	/^    def get_hive_name(path)$/;"	f	class:Windows.RegistryHelper
+get_os_info	windows/libraries/version.rb	/^    def get_os_info$/;"	f	class:Windows
+get_reg_path_info	windows/libraries/registry_helper.rb	/^    def get_reg_path_info(path)$/;"	f	class:Windows.RegistryHelper
+get_setting_id	windows/providers/pagefile.rb	/^def get_setting_id(pagefile)$/;"	f
+get_user_hive_location	windows/libraries/registry_helper.rb	/^    def get_user_hive_location(sid)$/;"	f	class:Windows.RegistryHelper
+get_value	windows/libraries/registry_helper.rb	/^    def get_value(path,value)$/;"	f	class:Windows.RegistryHelper
+get_values	windows/libraries/registry_helper.rb	/^    def get_values(path)$/;"	f	class:Windows.RegistryHelper
+hive_loaded?	windows/libraries/registry_helper.rb	/^    def hive_loaded?(path)$/;"	f	class:Windows.RegistryHelper
+initialize	ark/resources/default.rb	/^def initialize(name, run_context=nil)$/;"	f
+initialize	aws/resources/ebs_volume.rb	/^def initialize(*args)$/;"	f
+initialize	aws/resources/elastic_ip.rb	/^def initialize(*args)$/;"	f
+initialize	aws/resources/elastic_lb.rb	/^def initialize(*args)$/;"	f
+initialize	aws/resources/resource_tag.rb	/^def initialize(*args)$/;"	f
+initialize	aws/resources/s3_file.rb	/^def initialize(*args)$/;"	f
+initialize	chef_handler/resources/default.rb	/^def initialize(*args)$/;"	f
+initialize	java/libraries/helpers.rb	/^    def initialize(node)$/;"	f	class:Opscode.OpenJDK
+initialize	java/resources/ark.rb	/^def initialize(*args)$/;"	f
+initialize	windows/files/default/handlers/windows_reboot_handler.rb	/^  def initialize(allow_pending_reboots = true, timeout = 60, reason = "Opscode Chef initiated reboot")$/;"	f	class:WindowsRebootHandler
+initialize	windows/libraries/version.rb	/^    def initialize$/;"	f	class:Windows.Version
+initialize	windows/resources/auto_run.rb	/^def initialize(name,run_context=nil)$/;"	f
+initialize	windows/resources/batch.rb	/^def initialize(name, run_context=nil)$/;"	f
+initialize	windows/resources/feature.rb	/^def initialize(name, run_context=nil)$/;"	f
+initialize	windows/resources/package.rb	/^def initialize(*args)$/;"	f
+initialize	windows/resources/path.rb	/^def initialize(name,run_context=nil)$/;"	f
+initialize	windows/resources/reboot.rb	/^def initialize(name,run_context=nil)$/;"	f
+initialize	windows/resources/registry.rb	/^def initialize(name, run_context=nil)$/;"	f
+initialize	windows/resources/shortcut.rb	/^def initialize(*args)$/;"	f
+initialize	windows/resources/task.rb	/^def initialize(name, run_context=nil)$/;"	f
+initialize	windows/resources/zipfile.rb	/^def initialize(name, run_context=nil)$/;"	f
+install_command_template	windows/providers/package.rb	/^def install_command_template$/;"	f
+install_feature	windows/libraries/feature_base.rb	/^        def install_feature(name)$/;"	f	class:Chef.Provider.WindowsFeature.Base
+install_feature	windows/providers/feature_dism.rb	/^def install_feature(name)$/;"	f
+install_feature	windows/providers/feature_servermanagercmd.rb	/^def install_feature(name)$/;"	f
+install_package	windows/providers/package.rb	/^def install_package(name,version)$/;"	f
+install_plugin	elasticsearch/libraries/install_plugin.rb	/^  def install_plugin name, params={}$/;"	f	class:Extensions
+installed?	windows/libraries/feature_base.rb	/^        def installed?$/;"	f	class:Chef.Provider.WindowsFeature.Base
+installed?	windows/providers/feature_dism.rb	/^def installed?$/;"	f
+installed?	windows/providers/feature_servermanagercmd.rb	/^def installed?$/;"	f
+installed_packages	windows/providers/package.rb	/^def installed_packages$/;"	f
+installer_type	windows/providers/package.rb	/^def installer_type$/;"	f
+instance_availability_zone	aws/libraries/ec2.rb	/^      def instance_availability_zone$/;"	f	class:Opscode.Aws
+instance_id	aws/libraries/ec2.rb	/^      def instance_id$/;"	f	class:Opscode.Aws
+is_user_hive?	windows/libraries/registry_helper.rb	/^    def is_user_hive?(hive)$/;"	f	class:Windows.RegistryHelper
+java_home_parent	java/libraries/helpers.rb	/^    def java_home_parent(java_home)$/;"	f	class:Opscode.OpenJDK
+java_location	java/libraries/helpers.rb	/^    def java_location$/;"	f	class:Opscode.OpenJDK
+key_exists?	windows/libraries/registry_helper.rb	/^    def key_exists?(path, load_hive = false)$/;"	f	class:Windows.RegistryHelper
+klass	chef_handler/providers/default.rb	/^def klass$/;"	f
+load_current_resource	ark/providers/default.rb	/^def load_current_resource$/;"	f
+load_current_resource	aws/providers/resource_tag.rb	/^def load_current_resource$/;"	f
+load_current_resource	chef_handler/providers/default.rb	/^def load_current_resource$/;"	f
+load_current_resource	windows/providers/package.rb	/^def load_current_resource$/;"	f
+load_current_resource	windows/providers/printer.rb	/^def load_current_resource$/;"	f
+load_current_resource	windows/providers/printer_port.rb	/^def load_current_resource$/;"	f
+load_current_resource	windows/providers/shortcut.rb	/^def load_current_resource$/;"	f
+load_current_resource	windows/providers/task.rb	/^def load_current_resource$/;"	f
+load_task_hash	windows/providers/task.rb	/^def load_task_hash(task_name)$/;"	f
+load_user_hive	windows/libraries/registry_helper.rb	/^    def load_user_hive(hive,reg_path,user_hive)$/;"	f	class:Windows.RegistryHelper
+locate_and_mount	aws/providers/ebs_raid.rb	/^def locate_and_mount(mount_point, mount_point_owner, mount_point_group, mount_point_mode, filesystem, filesystem_options)$/;"	f
+locate_default_provider	windows/resources/feature.rb	/^def locate_default_provider$/;"	f
+locate_sysnative_cmd	windows/libraries/helper.rb	/^    def locate_sysnative_cmd(cmd)$/;"	f	class:Windows.Helper
+manage_udev	aws/providers/ebs_raid.rb	/^def manage_udev(action)$/;"	f
+max_and_min_set?	windows/providers/pagefile.rb	/^def max_and_min_set?(pagefile, min, max)$/;"	f
+md_device_from_mount_point	aws/providers/ebs_raid.rb	/^def md_device_from_mount_point(mount_point)$/;"	f
+mount_device	aws/providers/ebs_raid.rb	/^def mount_device(raid_dev, mount_point, mount_point_owner, mount_point_group, mount_point_mode, filesystem, filesystem_options)$/;"	f
+mount_volumes	aws/providers/ebs_raid.rb	/^def mount_volumes(device_vol_map)$/;"	f
+old_version?	java/libraries/helpers.rb	/^    def old_version?$/;"	f	class:Opscode.OpenJDK
+openjdk_path	java/libraries/helpers.rb	/^    def openjdk_path$/;"	f	class:Opscode.OpenJDK
+oracle_downloaded?	java/providers/ark.rb	/^def oracle_downloaded?(download_path, new_resource)$/;"	f
+parse_app_dir_name	java/providers/ark.rb	/^def parse_app_dir_name url$/;"	f
+parse_file_extension	ark/providers/default.rb	/^def parse_file_extension$/;"	f
+platform_requires_license_acceptance?	java/libraries/helpers.rb	/^    def platform_requires_license_acceptance?$/;"	f	class:Chef.Recipe
+port_exists?	windows/providers/printer_port.rb	/^def port_exists?(name)$/;"	f
+print_value	elasticsearch/libraries/print_value.rb	/^    def print_value key, value=nil, options={}$/;"	f	class:Extensions.Templates
+printer_exists?	windows/providers/printer.rb	/^def printer_exists?(name)$/;"	f
+query_instance_availability_zone	aws/libraries/ec2.rb	/^      def query_instance_availability_zone$/;"	f	class:Opscode.Aws
+query_instance_id	aws/libraries/ec2.rb	/^      def query_instance_id$/;"	f	class:Opscode.Aws
+reason	windows/files/default/handlers/windows_reboot_handler.rb	/^  def reason$/;"	f	class:WindowsRebootHandler
+reboot_pending?	windows/files/default/handlers/windows_reboot_handler.rb	/^  def reboot_pending?$/;"	f	class:WindowsRebootHandler
+reboot_requested?	windows/files/default/handlers/windows_reboot_handler.rb	/^  def reboot_requested?$/;"	f	class:WindowsRebootHandler
+reg_load_key	windows/libraries/windows_privileged.rb	/^    def reg_load_key(name, file)$/;"	f	class:Chef.WindowsPrivileged
+reg_unload_key	windows/libraries/windows_privileged.rb	/^    def reg_unload_key(name)$/;"	f	class:Chef.WindowsPrivileged
+registry_update	windows/providers/registry.rb	/^def registry_update(mode)$/;"	f
+remove_feature	windows/libraries/feature_base.rb	/^        def remove_feature(name)$/;"	f	class:Chef.Provider.WindowsFeature.Base
+remove_feature	windows/providers/feature_dism.rb	/^def remove_feature(name)$/;"	f
+remove_feature	windows/providers/feature_servermanagercmd.rb	/^def remove_feature(name)$/;"	f
+remove_package	windows/providers/package.rb	/^def remove_package(name, version)$/;"	f
+removing_package?	windows/providers/package.rb	/^def removing_package?$/;"	f
+report	windows/files/default/handlers/windows_reboot_handler.rb	/^  def report$/;"	f	class:WindowsRebootHandler
+resolve_user_to_sid	windows/libraries/registry_helper.rb	/^    def resolve_user_to_sid(username)$/;"	f	class:Windows.RegistryHelper
+run	windows/libraries/windows_privileged.rb	/^    def run(*privileges)$/;"	f	class:Chef.WindowsPrivileged
+script_file	windows/providers/batch.rb	/^def script_file$/;"	f
+search_for_nodes	elasticsearch/libraries/search_for_nodes.rb	/^  def search_for_nodes(query = nil, attribute = nil)$/;"	f	class:Extensions
+select_attribute	elasticsearch/libraries/search_for_nodes.rb	/^  def select_attribute(node, attribute = nil)$/;"	f	class:Extensions.search_for_nodes
+servermanagercmd	windows/providers/feature_servermanagercmd.rb	/^def servermanagercmd$/;"	f
+set_apache_url	ark/providers/default.rb	/^def set_apache_url(url_ref)$/;"	f
+set_automatic_managed	windows/providers/pagefile.rb	/^def set_automatic_managed$/;"	f
+set_custom_size	windows/providers/pagefile.rb	/^def set_custom_size(pagefile, min, max)$/;"	f
+set_dump_paths	ark/providers/default.rb	/^def set_dump_paths$/;"	f
+set_owner_and_group	windows/providers/batch.rb	/^def set_owner_and_group$/;"	f
+set_paths	ark/providers/default.rb	/^def set_paths$/;"	f
+set_put_paths	ark/providers/default.rb	/^def set_put_paths$/;"	f
+set_system_managed	windows/providers/pagefile.rb	/^def set_system_managed(pagefile)$/;"	f
+set_value	windows/libraries/registry_helper.rb	/^    def set_value(mode,path,values,type=nil)$/;"	f	class:Windows.RegistryHelper
+sixty_four	java/libraries/helpers.rb	/^    def sixty_four$/;"	f	class:Opscode.OpenJDK
+sm_serverr2	windows/libraries/version.rb	/^    def sm_serverr2$/;"	f	class:Windows
+start	titan/templates/default/rexster_service_init.erb	/^start() {$/;"	f
+status	titan/templates/default/rexster_service_init.erb	/^status() {$/;"	f
+stop	titan/templates/default/rexster_service_init.erb	/^stop() {$/;"	f
+tar_cmd	ark/providers/default.rb	/^def tar_cmd$/;"	f	class:unzip_cherry_pick
+tar_xjf	ark/providers/default.rb	/^def tar_xjf$/;"	f	class:unzip_cherry_pick
+tar_xjf_cherry_pick	ark/providers/default.rb	/^def tar_xjf_cherry_pick$/;"	f	class:unzip_cherry_pick
+tar_xjf_dump	ark/providers/default.rb	/^def tar_xjf_dump$/;"	f	class:unzip_cherry_pick
+tar_xzf	ark/providers/default.rb	/^def tar_xzf$/;"	f	class:unzip_cherry_pick
+tar_xzf_cherry_pick	ark/providers/default.rb	/^def tar_xzf_cherry_pick$/;"	f	class:unzip_cherry_pick
+tar_xzf_dump	ark/providers/default.rb	/^def tar_xzf_dump$/;"	f	class:unzip_cherry_pick
+thirty_two	java/libraries/helpers.rb	/^    def thirty_two$/;"	f	class:Opscode.OpenJDK
+timeout	windows/files/default/handlers/windows_reboot_handler.rb	/^  def timeout$/;"	f	class:WindowsRebootHandler
+udev	aws/providers/ebs_raid.rb	/^def udev(cmd, log)$/;"	f
+unattended_installation_flags	windows/providers/package.rb	/^def unattended_installation_flags$/;"	f
+uninstall_command_template	windows/providers/package.rb	/^def uninstall_command_template$/;"	f
+unlink_script_file	windows/providers/batch.rb	/^def unlink_script_file$/;"	f
+unload_hive	windows/libraries/registry_helper.rb	/^    def unload_hive(path)$/;"	f	class:Windows.RegistryHelper
+unpacked?	ark/providers/default.rb	/^def unpacked?(path)$/;"	f
+unset_automatic_managed	windows/providers/pagefile.rb	/^def unset_automatic_managed$/;"	f
+untar_cmd	ark/providers/default.rb	/^def untar_cmd(sub_cmd)$/;"	f	class:unzip_cherry_pick
+untar_cmd_cherry_pick	ark/providers/default.rb	/^def untar_cmd_cherry_pick(sub_cmd)$/;"	f	class:unzip_cherry_pick
+unzip	ark/providers/default.rb	/^def unzip$/;"	f
+unzip_cherry_pick	ark/providers/default.rb	/^def unzip_cherry_pick$/;"	f
+unzip_dump	ark/providers/default.rb	/^def unzip_dump$/;"	f
+update_initramfs	aws/providers/ebs_raid.rb	/^def update_initramfs()$/;"	f
+update_node_from_md_device	aws/providers/ebs_raid.rb	/^def update_node_from_md_device(md_device, mount_point)$/;"	f
+usage	titan/templates/default/rexster_service_init.erb	/^usage() {$/;"	f
+valid_ibm_jdk_uri?	java/libraries/helpers.rb	/^    def valid_ibm_jdk_uri?(url)$/;"	f	class:Chef.Recipe
+value_exists?	windows/libraries/registry_helper.rb	/^    def value_exists?(path,value)$/;"	f	class:Windows.RegistryHelper
+value_for_feature_provider	windows/libraries/helper.rb	/^    def value_for_feature_provider(provider_hash)$/;"	f	class:Windows.Helper
+volume_by_id	aws/providers/ebs_volume.rb	/^def volume_by_id(volume_id)$/;"	f
+volume_compatible_with_resource_definition?	aws/providers/ebs_volume.rb	/^def volume_compatible_with_resource_definition?(volume)$/;"	f
+volume_id_in_node_data	aws/providers/ebs_volume.rb	/^def volume_id_in_node_data$/;"	f
+whyrun_supported?	aws/providers/ebs_volume.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	aws/providers/elastic_ip.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	aws/providers/s3_file.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	chef_handler/providers/default.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	java/providers/ark.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	windows/providers/printer.rb	/^def whyrun_supported?$/;"	f
+whyrun_supported?	windows/providers/printer_port.rb	/^def whyrun_supported?$/;"	f
+win_friendly_path	windows/libraries/helper.rb	/^    def win_friendly_path(path)$/;"	f	class:Windows.Helper
+win_version	windows/libraries/helper.rb	/^    def win_version$/;"	f	class:Windows.Helper
+wmic	windows/providers/pagefile.rb	/^def wmic$/;"	f

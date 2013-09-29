@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<property>
+    <name>hbase.rootdir</name>
+    <value><%= node[:ttx_hbase][:hbase][:root_dir] %></value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value><%= node[:ttx_hbase][:zookeeper][:data_dir] %></value>
+  </property>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value><%= node[:ttx_hbase][:zookeeper][:quorum] %></value>
+  </property>
+</configuration>

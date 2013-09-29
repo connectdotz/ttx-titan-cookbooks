@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# Copyright 2008-2009 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+#
+
+#
+# hbase-<%= @script_service %>
+#
+. /lib/lsb/init-functions
+. <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh
+
+cd $HBASE_HOME
+
+# set the ulimit to 32768 because hbase needs lots of open files
+ulimit -n 32768
+
+function start {
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR start <%= @script_service %>"  
+}
+
+function stop {
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR stop <%= @script_service %>" 
+}
+
+function reload {
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR restart <%= @script_service %>" 
+}
+
+function status {
+    log_warning_msg "Status is not supported"
+}
+
+case $1 in
+    'start' )
+	start
+	;;
+    'stop' )
+	stop
+	;;
+    'restart' )
+	stop
+	start
+	;;
+    'force-reload' )
+	reload
+	;;
+    'status' )
+	status
+	;;
+    *)
+	echo "usage: `basename $0` {start|stop|status}"
+esac 
+
+exit 0 
+
