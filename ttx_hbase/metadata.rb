@@ -1,4 +1,4 @@
-name "ttx_es"
+name "ttx_hbase"
 
 maintainer "thingtrix"
 maintainer_email "thingtrix@thingtrix.com"

@@ -5,7 +5,7 @@
 # start rexster
 #
 
-include_recipe "hadoop-services"
+include_recipe "ttx_hbase::hadoop-services"
 
 execute 'start-hadoop-datanode' do
     command 'echo "starting hadoop-datanode"'

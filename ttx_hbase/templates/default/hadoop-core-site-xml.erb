@@ -8,4 +8,10 @@
          <name>fs.default.name</name>
          <value><%= node[:ttx_hbase][:hadoop][:fs_name] %></value>
     </property>
+
+  	<property>
+		<name>hadoop.tmp.dir</name>
+		<value><%= node[:ttx_hbase][:hadoop][:tmp_dir] %></value>
+	</property>
+	
 </configuration>

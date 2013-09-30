@@ -14,7 +14,7 @@ template "hadoop-env-sh" do
   source "hadoop-env-sh.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hadoop_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 # hdfs-site.xml 
@@ -23,7 +23,7 @@ template "hdfs-site-xml" do
   source "hdfs-site-xml.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hadoop_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 # hadoop-core-site.xml 
@@ -32,7 +32,7 @@ template "hadoop-core-site-xml" do
   source "hadoop-core-site-xml.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hadoop_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 template "log4j-properties" do
@@ -40,18 +40,35 @@ template "log4j-properties" do
   source "log4j-properties.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hadoop_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 log_dir="#{node[:ttx_hbase][:hadoop][:log_dir]}"
 
-bash "set_hadoop_log" do
+bash "setup-hadoop-conf" do
   user "root"
   code <<-EOH
 
 	mkdir -p log_dir
 	chmod 0655 log_dir
+
+	## save original config files
+	cd  #{hadoop_home}/conf
+	cp -n hadoop-env.sh  hadoop-env.sh.orig
+	cp -n core-site.xml core-site.xml.orig
+	cp -n hdfs-site.xml hdfs-site.xml.orig
+	cp -n log4j.properties log4j.properties.orig
+
+	echo "done"
+    
   EOH
+
+  notifies :create, "template[hadoop-env-sh]", :immediately
+  notifies :create, "template[hdfs-site-xml]", :immediately
+  notifies :create, "template[hadoop-core-site-xml]", :immediately
+  notifies :create, "template[log4j-properties]", :immediately
+
+  action :nothing
 end
 
 

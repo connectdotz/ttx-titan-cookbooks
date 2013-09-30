@@ -3,7 +3,15 @@
 #
 
 #include_recipe 'install-hbase'
-include_recipe 'setup-hbase-initd'
-include_recipe 'setup-hbase-conf'
+
+include_recipe 'ttx_hbase::setup-hbase-initd'
+
+include_recipe 'ttx_hbase::opswork-context'
+include_recipe 'ttx_hbase::setup-hbase-conf'
+
+execute "setup-hbase" do
+	command "echo setup-hbase"
+	notifies :run, "bash[setup-hbase-conf]", :immediately
+end
 
 

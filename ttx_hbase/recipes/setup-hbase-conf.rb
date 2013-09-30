@@ -14,7 +14,7 @@ template "hbase-env-sh" do
   source "hbase-env-sh.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hbase_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 # hdfs-site.xml 
@@ -23,16 +23,7 @@ template "hbase-site-xml" do
   source "hbase-site-xml.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hbase_home}/conf" ) }
-  action :create
-end
-
-# hbase-core-site.xml 
-template "hbase-core-site-xml" do
-  path "#{hbase_home}/conf/core-site.xml"
-  source "hbase-core-site-xml.erb"
-  owner 'root' and mode 0644
-  only_if { File.directory?( "#{hbase_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 template "log4j-properties" do
@@ -40,18 +31,33 @@ template "log4j-properties" do
   source "log4j-properties.erb"
   owner 'root' and mode 0644
   only_if { File.directory?( "#{hbase_home}/conf" ) }
-  action :create
+  action :nothing
 end
 
 log_dir="#{node[:ttx_hbase][:hbase][:log_dir]}"
 
-bash "set_hbase_log" do
+bash "setup-hbase-conf" do
   user "root"
   code <<-EOH
 
 	mkdir -p log_dir
 	chmod 0655 log_dir
+
+	## save original config files
+	cd  #{hbase_home}/conf
+	cp -n hbase-env.sh  hadoop-env.sh.orig
+	cp -n hbase-site.xml core-site.xml.orig
+	cp -n log4j.properties log4j.properties.orig
+
+	echo "done"
   EOH
+
+  notifies :create, "template[hbase-env-sh]", :immediately
+  notifies :create, "template[hbase-site-xml]", :immediately
+  notifies :create, "template[log4j-properties]", :immediately
+
+  action :nothing
+
 end
 
 

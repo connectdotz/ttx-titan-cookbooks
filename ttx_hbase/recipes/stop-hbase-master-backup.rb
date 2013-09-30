@@ -2,7 +2,7 @@
 # define rexster service
 #
 
-include_recipe "hbase-services"
+include_recipe "ttx_hbase::hbase-services"
 
 execute "stop-hbase-master-backup" do
 	command "echo stopping hbase master-backup..."

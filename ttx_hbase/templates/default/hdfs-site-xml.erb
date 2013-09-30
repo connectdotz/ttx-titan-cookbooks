@@ -16,4 +16,9 @@
          <name>dfs.replication</name>
          <value><%= node[:ttx_hbase][:hadoop][:replication] %></value>
     </property>
+
+	<property>
+        <name>dfs.datanode.max.xcievers</name>
+        <value>4096</value>
+	</property>
 </configuration>
