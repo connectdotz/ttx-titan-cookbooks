@@ -6,7 +6,7 @@
 # triggered by the OpsWork configuration lifecycle event when any instance came online in the stack
 #
 
-include_recipe 'ttx_hbase::opswork-context'
+include_recipe 'ttx_hbase::opsworks-context'
 include_recipe 'ttx_hbase::setup-hbase-conf'
 include_recipe 'ttx_hbase::hbase_services'
 
