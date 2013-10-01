@@ -9,17 +9,17 @@
 . /lib/lsb/init-functions
 . <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh
 
-cd $HADOOP_HOME
+cd $HADOOP_PREFIX
 
 # set the ulimit to 32768 because hadoop needs lots of open files
 ulimit -n 32768
 
 function start {
-    su -l -c ". <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh; $HADOOP_HOME/bin/hadoop-daemon.sh --config $HADOOP_CONF_DIR start <%= @script_service %>"  
+    su -l -c ". <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh; $HADOOP_PREFIX/bin/hadoop-daemon.sh --config $HADOOP_CONF_DIR start <%= @script_service %>"  
 }
 
 function stop {
-    su -l -c ". <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh; $HADOOP_HOME/bin/hadoop-daemon.sh --config $HADOOP_CONF_DIR stop <%= @script_service %>" 
+    su -l -c ". <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh; $HADOOP_PREFIX/bin/hadoop-daemon.sh --config $HADOOP_CONF_DIR stop <%= @script_service %>" 
 }
 
 function reload {

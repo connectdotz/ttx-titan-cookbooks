@@ -37,7 +37,7 @@ ruby_block "update hadoop.fs_name" do
 			end
 
 			if (instance != nil)
-				new_name = "hdfs://#{instance[:private_id]}:9000"
+				new_name = "hdfs://#{instance[:private_ip]}:9000"
 				if(new_name != node[:ttx_hbase][:hadoop][:_fs_name])
 					node.override[:ttx_hbase][:hadoop][:_fs_name] = new_name
 					Chef::Log.info("found updated namenode instance: #{instance.inspect}") 

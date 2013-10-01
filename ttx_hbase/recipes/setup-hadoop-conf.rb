@@ -58,7 +58,7 @@ bash "setup-hadoop-conf" do
 	cp -n core-site.xml core-site.xml.orig
 	cp -n hdfs-site.xml hdfs-site.xml.orig
 	cp -n log4j.properties log4j.properties.orig
-
+	
 	echo "done"
     
   EOH
@@ -69,6 +69,16 @@ bash "setup-hadoop-conf" do
   notifies :create, "template[log4j-properties]", :immediately
 
   action :nothing
+end
+
+ruby_block "create-directories" do
+    block do
+	FileUtils.mkdir_p "#{node[:ttx_hbase][:hadoop][:tmp_dir]}"
+	FileUtils.mkdir_p "#{node[:ttx_hbase][:hadoop][:pid_dir]}"
+
+	FileUtils.mkdir_p node[:ttx_hbase][:hadoop][:name_dir]
+	FileUtils.mkdir_p node[:ttx_hbase][:hadoop][:data_dir]
+	end
 end
 
 
