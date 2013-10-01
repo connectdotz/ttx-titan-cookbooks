@@ -6,7 +6,7 @@
 
 include_recipe 'ttx_hbase::setup-hbase-initd'
 
-include_recipe 'ttx_hbase::opswork-context'
+include_recipe 'ttx_hbase::opsworks-context'
 include_recipe 'ttx_hbase::setup-hbase-conf'
 
 cookbook_file "/tmp/install-hbase.sh" do
