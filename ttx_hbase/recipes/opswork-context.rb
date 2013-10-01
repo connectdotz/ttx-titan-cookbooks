@@ -10,8 +10,9 @@
 #hadoop.fs_name : check namenode private_ip address 
 ruby_block "update hadoop.fs_name" do 
 	block do
-		layer = node[:ttx_hbase][:opsworks][:hadoop_namenode_layer]
-		namenode = defined?(node[:opsworks][:layers][layer]) == nil ? nil : node[:opsworks][:layers][layer]
+	
+		layer_name = node[:ttx_hbase][:opsworks][:hadoop_namenode_layer]
+		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
 
 		if defined?(node[:opsworks][:layers]) != nil
 			puts node[:opsworks][:layers]
@@ -20,26 +21,36 @@ ruby_block "update hadoop.fs_name" do
 		end
 
 		node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = false
+		instance = nil
 	
-		if namenode != nil
-			if namenode[:instances].length != 1
-				Chef::Log.error("will use default namenode because namenode instances count is #{namenode[:instances].length}") 
+		if layer != nil
+			if layer[:instances].length != 1
+			    #check if current instance belong to the layer
+				if node[:opsworks][:instance][:layers].include?(layer_name)
+					instance = node[:opsworks][:instance]
+				end
 			else
-				namenode[:instances].each do |instance|
-					new_name = "hdfs://#{instance[:private_ip]}:9000"
-
-					if(new_name != node[:ttx_hbase][:hadoop][:fs_name])
-						node.override[:ttx_hbase][:hadoop][:fs_name] = new_name
-						Chef::Log.info("found namenode from opsworks namenode layer '#{layer}': dns:#{instance[:public_dns_name]}, availability_zone:#{instance[:availability_zone]}, aws_instance_id: #{instance[:aws_instance_id]}") 
-						node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = true
-					end
+				layer[:instances].each do |i|
+				    instance = i
+					break
 				end
 			end
-		else
-			Chef::Log.debug("will use default namenode because no namenode layer '#{layer}' is found") 
+
+			if (instance != nil)
+				new_name = "hdfs://#{instance[:private_id]}:9000"
+				if(new_name != node[:ttx_hbase][:hadoop][:_fs_name])
+					node.override[:ttx_hbase][:hadoop][:_fs_name] = new_name
+					Chef::Log.info("found updated namenode instance: #{instance.inspect}") 
+					node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = true
+				end
+			end
 		end
 
-		Chef::Log.info( "fs_name_changed? #{node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed]}, fs_name = #{node[:ttx_hbase][:hadoop][:fs_name]}") 
+		if(instance == nil)
+			Chef::Log.debug("will use default namenode") 
+		end
+
+		Chef::Log.info( "fs_name_changed? #{node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed]}, fs_name = #{node[:ttx_hbase][:hadoop][:_fs_name]}") 
 		
 	end
 end
@@ -47,32 +58,16 @@ end
 
 ruby_block "update hbase.rootdir" do 
 	block do
-		layer_name = node[:ttx_hbase][:opsworks][:hbase_master_layer]
-		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
-	
+		new_name = "#{node[:ttx_hbase][:hadoop][:_fs_name]}/hbase"
+		if(new_name != node[:ttx_hbase][:hbase][:_root_dir])
+			node.override[:ttx_hbase][:hbase][:_root_dir] = new_name
+			node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = true
 
-		node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = false
-	
-		if layer != nil
-			if layer[:instances].length != 1
-				Chef::Log.error("will use default root_dir because hbase-master instances count is #{layer[:instances].length}") 
-			else
-				layer[:instances].each do |instance|
-					new_name = "hdfs://#{instance[:private_ip]}:9000"
-
-					if(new_name != node[:ttx_hbase][:hadoop][:root_dir])
-						node.override[:ttx_hbase][:hadoop][:root_dir] = new_name
-						Chef::Log.info("found hbase-master from opsworks layer '#{layer}': dns:#{instance[:public_dns_name]}, availability_zone:#{instance[:availability_zone]}, aws_instance_id: #{instance[:aws_instance_id]}") 
-						node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = true
-					end
-				end
-			end
+			Chef::Log.info("hbase rootdir changed: #{new_name}") 
 		else
-			Chef::Log.debug("will use default rootdir because no layer '#{layer}' is found")
 		end
 
-		Chef::Log.info("rootdir_changed? #{node[:ttx_hbase][:opsworks][:hbase_rootdir_changed]}, rootdir = #{node[:ttx_hbase][:hbase][:root_dir]}") 
-		
+		Chef::Log.info("rootdir_changed? #{node[:ttx_hbase][:opsworks][:hbase_rootdir_changed]}, rootdir = #{node[:ttx_hbase][:hbase][:_root_dir]}") 
 	end
 end
 

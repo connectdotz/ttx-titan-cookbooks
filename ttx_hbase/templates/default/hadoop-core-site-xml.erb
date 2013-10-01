@@ -6,7 +6,7 @@
 <configuration>
     <property>
          <name>fs.default.name</name>
-         <value><%= node[:ttx_hbase][:hadoop][:fs_name] %></value>
+         <value><%= (node[:ttx_hbase][:hadoop][:fs_name] || node[:ttx_hbase][:hadoop][:_fs_name] ) %></value>
     </property>
 
   	<property>

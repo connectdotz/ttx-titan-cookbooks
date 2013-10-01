@@ -2,8 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
 	<property>
+    	<name>dfs.support.append</name>
+    	<value>true</value>
+  	</property>
+
+	<property>
     	<name>hbase.rootdir</name>
-    	<value><%= node[:ttx_hbase][:hbase][:root_dir] %></value>
+    	<value><%= (node[:ttx_hbase][:hbase][:root_dir] || node[:ttx_hbase][:hbase][:_root_dir]) %></value>
   	</property>
 
   	<property>
