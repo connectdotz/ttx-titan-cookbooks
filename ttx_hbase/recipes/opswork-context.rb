@@ -13,6 +13,12 @@ ruby_block "update hadoop.fs_name" do
 		layer = node[:ttx_hbase][:opsworks][:hadoop_namenode_layer]
 		namenode = defined?(node[:opsworks][:layers][layer]) == nil ? nil : node[:opsworks][:layers][layer]
 
+		if defined?(node[:opsworks][:layers]) != nil
+			puts node[:opsworks][:layers]
+		else
+			puts "no node[:opsworks][:layers]"
+		end
+
 		node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = false
 	
 		if namenode != nil
@@ -43,6 +49,7 @@ ruby_block "update hbase.rootdir" do
 	block do
 		layer_name = node[:ttx_hbase][:opsworks][:hbase_master_layer]
 		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
+	
 
 		node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = false
 	
