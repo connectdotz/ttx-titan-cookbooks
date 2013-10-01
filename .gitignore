@@ -14,6 +14,7 @@ tmp
 *stacktrace.out
 *.swp
 *.pid
+**/.vagrant
 
 # mac
 .DS_Store
