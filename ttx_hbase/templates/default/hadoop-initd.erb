@@ -6,7 +6,7 @@
 #
 # hadoop-<%= @script_service %>
 #
-. /lib/lsb/init-functions
+. /etc/rc.d/init.d/functions
 . <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh
 
 cd $HADOOP_PREFIX

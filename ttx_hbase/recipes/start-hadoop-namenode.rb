@@ -9,7 +9,7 @@ include_recipe "ttx_hbase::hadoop-services"
 
 ruby_block "format-namenode" do
 	block do
-		if (!File.exists?(node[:ttx_hbase][:hadoop][:name_dir]/current/VERSION))
+		if (!File.exists?("#{node[:ttx_hbase][:hadoop][:name_dir]}/current/VERSION"))
 			cmd = "echo 'N' | #{node[:ttx_hbase][:hadoop][:home]}/bin/hadoop namenode -format"
 			%x( #{cmd} )
 			Chef::Log.info( "namenode is formated" )

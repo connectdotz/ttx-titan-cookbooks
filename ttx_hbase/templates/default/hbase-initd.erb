@@ -6,7 +6,7 @@
 #
 # hbase-<%= @script_service %>
 #
-. /lib/lsb/init-functions
+. /etc/rc.d/init.d/functions
 . <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh
 
 cd $HBASE_HOME
