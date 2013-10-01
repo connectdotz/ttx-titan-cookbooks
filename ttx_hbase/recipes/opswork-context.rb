@@ -13,7 +13,7 @@ ruby_block "update hadoop.fs_name" do
 		layer = node[:ttx_hbase][:opsworks][:hadoop_namenode_layer]
 		namenode = defined?(node[:opsworks][:layers][layer]) == nil ? nil : node[:opsworks][:layers][layer]
 
-		node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = false
+		node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = false
 	
 		if namenode != nil
 			if namenode[:instances].length != 1
@@ -23,9 +23,9 @@ ruby_block "update hadoop.fs_name" do
 					new_name = "hdfs://#{instance[:private_ip]}:9000"
 
 					if(new_name != node[:ttx_hbase][:hadoop][:fs_name])
-						node[:ttx_hbase][:hadoop][:fs_name] = new_name
+						node.override[:ttx_hbase][:hadoop][:fs_name] = new_name
 						Chef::Log.info("found namenode from opsworks namenode layer '#{layer}': dns:#{instance[:public_dns_name]}, availability_zone:#{instance[:availability_zone]}, aws_instance_id: #{instance[:aws_instance_id]}") 
-						node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = true
+						node.override[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] = true
 					end
 				end
 			end
@@ -44,7 +44,7 @@ ruby_block "update hbase.rootdir" do
 		layer_name = node[:ttx_hbase][:opsworks][:hbase_master_layer]
 		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
 
-		node[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = false
+		node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = false
 	
 		if layer != nil
 			if layer[:instances].length != 1
@@ -54,9 +54,9 @@ ruby_block "update hbase.rootdir" do
 					new_name = "hdfs://#{instance[:private_ip]}:9000"
 
 					if(new_name != node[:ttx_hbase][:hadoop][:root_dir])
-						node[:ttx_hbase][:hadoop][:root_dir] = new_name
+						node.override[:ttx_hbase][:hadoop][:root_dir] = new_name
 						Chef::Log.info("found hbase-master from opsworks layer '#{layer}': dns:#{instance[:public_dns_name]}, availability_zone:#{instance[:availability_zone]}, aws_instance_id: #{instance[:aws_instance_id]}") 
-						node[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = true
+						node.override[:ttx_hbase][:opsworks][:hbase_rootdir_changed] = true
 					end
 				end
 			end
@@ -74,7 +74,7 @@ ruby_block "update zookeeper.quorum" do
 		layer_name = node[:ttx_hbase][:opsworks][:zookeeper_layer]
 		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
 
-		node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = false
+		node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = false
 	
 		if layer != nil
 
@@ -84,9 +84,9 @@ ruby_block "update zookeeper.quorum" do
 			end
 
 			if(quorum.sort !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
-					node[:ttx_hbase][:zookeeper][:quorum] = quorum
+					node.override[:ttx_hbase][:zookeeper][:quorum] = quorum
 					Chef::Log.info( "quorum changed: #{quorum}" )
-					node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = true
+					node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = true
 			end
 		else
 			Chef::Log.debug( "will use default rootdir because no layer '#{layer}' is found" )
