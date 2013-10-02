@@ -77,21 +77,25 @@ ruby_block "update zookeeper.quorum" do
 		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
 
 		node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = false
-	
+
+		quorum = Set.new;
+
 		if layer != nil
 
-			quorum = Array.new;
+			if node[:opsworks][:instance][:layers].include?(layer_name)
+				quorum << node[:opsworks][:instance][:private_dns_name]
+			end
+	
 			layer[:instances].each do |key, value|
-				quorum << "#{value[:private_dns_name]}"
+				quorum << value[:private_dns_name]
 			end
+		end
 
-			if(quorum.length > 0 && quorum.sort !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
-					node.override[:ttx_hbase][:zookeeper][:quorum] = quorum
-					Chef::Log.info( "quorum changed: #{quorum}" )
-					node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = true
-			end
-		else
-			Chef::Log.debug( "will use default rootdir because no layer '#{layer}' is found" )
+		sorted_quorum =  quorum.to_a.sort
+		if(sorted_quorum.length > 0 && sorted_quorum !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
+				node.override[:ttx_hbase][:zookeeper][:quorum] = sorted_quorum
+				Chef::Log.info( "quorum changed: #{sorted_quorum}" )
+				node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = true
 		end
 
 		Chef::Log.info("zookeeper_quorum_changed? #{node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed]}, quorum= #{node[:ttx_hbase][:zookeeper][:quorum]}")
