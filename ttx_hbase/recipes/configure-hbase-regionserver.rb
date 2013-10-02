@@ -15,7 +15,7 @@ execute "restart-hbase-regionserver" do
 	only_if { node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] || node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] ||
 		 node[:ttx_hbase][:opsworks][:hbase_rootdir_changed]}
 	notifies :run, "bash[setup-hbase-conf]", :immediately
-	notifies :reload, "service[hbase-regionserver]", :delayed
+	notifies :restart, "service[hbase-regionserver]", :delayed
 end
 
 

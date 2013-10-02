@@ -4,22 +4,22 @@
 
 
 service "hbase-master" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 
 service "hbase-regionserver" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 
 service "hbase-master-backup" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 
 service "zookeeper" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 

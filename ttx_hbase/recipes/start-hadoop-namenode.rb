@@ -21,6 +21,7 @@ end
 execute 'start-hadoop-namenode' do
     command 'echo "starting hadoop-namenode"'
 	action :nothing
+    notifies :enable, resources(:service => 'hadoop-namenode')
     notifies :start, resources(:service => 'hadoop-namenode')
 end
 

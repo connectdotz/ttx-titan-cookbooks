@@ -14,7 +14,7 @@ execute "restart-hadoop-datanode" do
 	command "echo perform configure operation"
 	only_if { node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] == true}
 	notifies :run, "bash[setup-hadoop-conf]", :immediately
-	notifies :reload, "service[hadoop-datanode]", :delayed
+	notifies :restart, "service[hadoop-datanode]", :delayed
 end
 
 

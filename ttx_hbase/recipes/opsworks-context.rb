@@ -15,7 +15,7 @@ ruby_block "update hadoop.fs_name" do
 		layer = defined?(node[:opsworks][:layers][layer_name]) == nil ? nil : node[:opsworks][:layers][layer_name]
 
 		if defined?(node[:opsworks][:layers]) != nil
-			puts node[:opsworks][:layers]
+			puts node[:opsworks][:layers].inspect
 		else
 			puts "no node[:opsworks][:layers]"
 		end

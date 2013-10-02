@@ -4,17 +4,17 @@
 
 
 service "hadoop-namenode" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 
 service "hadoop-datanode" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 
 service "hadoop-secondarynamenode" do
-  supports :reload => true, :start => true, :stop => true
+  supports :restart => true, :start => true, :stop => true, :status => true
   action :nothing
 end
 

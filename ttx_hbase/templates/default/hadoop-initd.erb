@@ -11,6 +11,8 @@
 
 cd $HADOOP_PREFIX
 
+pid=$HADOOP_PID_DIR/hadoop-$HADOOP_IDENT_STRING-$command.pid
+
 # set the ulimit to 32768 because hadoop needs lots of open files
 ulimit -n 32768
 
@@ -28,7 +30,14 @@ function reload {
 }
 
 function status {
-    log_warning_msg "Status is not supported"
+#    log_warning_msg "Status is not supported"
+	if [ -f $pid ]
+	    echo "$command is already running"
+		exit 0
+	else
+		echo "$command is not running"
+		exit 1
+	}
 }
 
 case $1 in
