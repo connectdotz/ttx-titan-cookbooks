@@ -81,8 +81,8 @@ ruby_block "update zookeeper.quorum" do
 		if layer != nil
 
 			quorum = Array.new;
-			layer[:instances].each do |instance|
-				quorum << "#{instance[:private_dns_name]}"
+			layer[:instances].each do |key, value|
+				quorum << "#{value[:private_dns_name]}"
 			end
 
 			if(quorum.length > 0 && quorum.sort !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
