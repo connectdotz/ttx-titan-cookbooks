@@ -30,8 +30,8 @@ ruby_block "update hadoop.fs_name" do
 					instance = node[:opsworks][:instance]
 				end
 			else
-				layer[:instances].each do |i|
-				    instance = i
+				layer[:instances].each do |key, value|
+				    instance = value
 					break
 				end
 			end

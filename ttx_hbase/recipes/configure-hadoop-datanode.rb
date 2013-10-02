@@ -8,7 +8,7 @@
 
 include_recipe 'ttx_hbase::opsworks-context'
 include_recipe 'ttx_hbase::setup-hadoop-conf'
-include_recipe 'ttx_hbase::hadoop_services'
+include_recipe 'ttx_hbase::hadoop-services'
 
 execute "restart-hadoop-datanode" do
 	command "echo perform configure operation"
