@@ -16,7 +16,7 @@ ruby_block "format-and-start-namenode" do
 		end
 	end
     notifies :enable, resources(:service => 'hadoop-namenode')
-    notifies :start, resources(:service => 'hadoop-namenode')
+    notifies :restart, resources(:service => 'hadoop-namenode')
 end
 
 

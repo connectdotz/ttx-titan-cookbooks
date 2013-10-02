@@ -85,7 +85,7 @@ ruby_block "update zookeeper.quorum" do
 				quorum << "#{instance[:private_dns_name]}"
 			end
 
-			if(quorum.sort !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
+			if(quorum.length > 0 && quorum.sort !=  node[:ttx_hbase][:zookeeper][:quorum].sort)
 					node.override[:ttx_hbase][:zookeeper][:quorum] = quorum
 					Chef::Log.info( "quorum changed: #{quorum}" )
 					node.override[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] = true

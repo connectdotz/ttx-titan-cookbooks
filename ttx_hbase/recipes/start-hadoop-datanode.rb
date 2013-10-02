@@ -10,6 +10,6 @@ include_recipe "ttx_hbase::hadoop-services"
 execute 'start-hadoop-datanode' do
     command 'echo "starting hadoop-datanode"'
     notifies :enable, resources(:service => 'hadoop-datanode')
-    notifies :start, resources(:service => 'hadoop-datanode')
+    notifies :restart, resources(:service => 'hadoop-datanode')
 end
 

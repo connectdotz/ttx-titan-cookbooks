@@ -10,6 +10,6 @@ include_recipe "ttx_hbase::hadoop-services"
 execute 'start-hadoop-secondarynamenode' do
     command 'echo "starting hadoop-secondarynamenode"'
     notifies :enable, resources(:service => 'hadoop-secondarynamenode')
-    notifies :start, resources(:service => 'hadoop-secondarynamenode')
+    notifies :restart, resources(:service => 'hadoop-secondarynamenode')
 end
 
