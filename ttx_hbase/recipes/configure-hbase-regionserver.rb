@@ -8,7 +8,7 @@
 
 include_recipe 'ttx_hbase::opsworks-context'
 include_recipe 'ttx_hbase::setup-hbase-conf'
-include_recipe 'ttx_hbase::hbase_services'
+include_recipe 'ttx_hbase::hbase-services'
 
 execute "restart-hbase-regionserver" do
 	command "echo perform configure operation"
