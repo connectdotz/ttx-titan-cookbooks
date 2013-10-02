@@ -10,13 +10,12 @@ include_recipe 'ttx_hbase::opsworks-context'
 include_recipe 'ttx_hbase::setup-hbase-conf'
 include_recipe 'ttx_hbase::hbase_services'
 
-execute "restart-hbase-regionserver" do
+execute "restart-hbase-master-backup" do
 	command "echo perform configure operation"
 	only_if { node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] || 
-		node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] ||
-		node[:ttx_hbase][:opsworks][:hbase_rootdir_changed]}
+		node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] }
 	notifies :run, "bash[setup-hbase-conf]", :immediately
-	notifies :restart, "service[hbase-regionserver]", :delayed
+	notifies :restart, "service[hbase-master-backup]", :delayed
 end
 
 

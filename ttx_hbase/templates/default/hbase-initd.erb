@@ -5,7 +5,7 @@
 
 
 #
-# Copyright 2008-2009 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+# Copyright 2013 ConnectDotz, LLC. All Rights Reserved.
 #
 
 . /etc/rc.d/init.d/functions
@@ -19,15 +19,15 @@ cd $HBASE_HOME
 ulimit -n 32768
 
 function start {
-    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR start <%= @script_service %>"  
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR start <%= @script_service %>  <%= @script_args %>"  
 }
 
 function stop {
-    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR stop <%= @script_service %>" 
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR stop <%= @script_service %> <%= @script_args %>" 
 }
 
 function reload {
-    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR restart <%= @script_service %>" 
+    su -l -c ". <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh; $HBASE_HOME/bin/hbase-daemon.sh --config $HBASE_CONF_DIR restart <%= @script_service %> <%= @script_args %>" 
 }
 
 function status {

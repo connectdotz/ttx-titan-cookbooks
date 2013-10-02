@@ -73,8 +73,8 @@ end
 
 ruby_block "create-directories" do
     block do
-	FileUtils.mkdir_p "#{node[:ttx_hbase][:hadoop][:tmp_dir]}"
-	FileUtils.mkdir_p "#{node[:ttx_hbase][:hadoop][:pid_dir]}"
+	FileUtils.mkdir_p {node[:ttx_hbase][:hadoop][:tmp_dir]}
+	FileUtils.mkdir_p {node[:ttx_hbase][:hadoop][:pid_dir]}
 
 	FileUtils.mkdir_p node[:ttx_hbase][:hadoop][:data_dir]
 

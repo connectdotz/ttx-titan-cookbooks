@@ -12,7 +12,8 @@ include_recipe 'ttx_hbase::hbase_services'
 
 execute "restart-hbase-master" do
 	command "echo perform configure operation"
-	only_if { node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] || node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] }
+	only_if { node[:ttx_hbase][:opsworks][:hadoop_fs_name_changed] || 
+		node[:ttx_hbase][:opsworks][:zookeeper_quorum_changed] }
 	notifies :run, "bash[setup-hbase-conf]", :immediately
 	notifies :restart, "service[hbase-master]", :delayed
 end
