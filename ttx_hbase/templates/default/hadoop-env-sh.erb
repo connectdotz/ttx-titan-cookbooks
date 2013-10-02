@@ -12,6 +12,9 @@
 
 export HADOOP_PREFIX="<%=  node[:ttx_hbase][:hadoop][:home] %>"
 export HADOOP_CONF_DIR="<%=  node[:ttx_hbase][:hadoop][:conf] %>"
+export HADOOP_PID_DIR=<%= node[:ttx_hbase][:hadoop][:pid_dir] %>
+export HADOOP_IDENT_STRING=<%= node[:ttx_hbase][:hadoop][:user] %>
+
 
 export HADOOP_LOG_DIR="<%= node[:ttx_hbase][:hadoop][:log_dir] %>"
 

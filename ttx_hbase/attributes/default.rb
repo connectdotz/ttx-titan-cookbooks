@@ -31,6 +31,7 @@ default[:ttx_hbase][:hadoop][:log_dir] = '/var/log/hadoop'
 default[:ttx_hbase][:hadoop][:hadoop_opts] = '-Djava.awt.headless=true'
 default[:ttx_hbase][:hadoop][:replication] = 1
 default[:ttx_hbase][:hadoop][:tracker] = 'localhost:9001'
+default[:ttx_hbase][:hadoop][:user] = 'root'
 
 default[:ttx_hbase][:hadoop][:fs_name] = nil
 default[:ttx_hbase][:hadoop][:_fs_name] = 'hdfs://localhost:9000'
@@ -43,6 +44,7 @@ default[:ttx_hbase][:hbase][:tmp_dir] = '/var/hbase/tmp'
 default[:ttx_hbase][:hbase][:manage_zk] = true
 default[:ttx_hbase][:hbase][:log_level] = 'INFO'
 default[:ttx_hbase][:hbase][:log_dir] = '/var/log/hbase'
+default[:ttx_hbase][:hbase][:user] = 'root'
 
 default[:ttx_hbase][:hbase][:root_dir] = nil
 default[:ttx_hbase][:hbase][:_root_dir] = "#{node[:ttx_hbase][:hadoop][:_fs_name]}/hbase"

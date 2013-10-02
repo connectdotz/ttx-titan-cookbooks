@@ -1,13 +1,17 @@
 #!/bin/bash
+# chkconfig: 2345 95 20
+# description: hbase-<%= @script_service %>
+# processname: java
+
+
 #
 # Copyright 2008-2009 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
 #
 
-#
-# hbase-<%= @script_service %>
-#
 . /etc/rc.d/init.d/functions
 . <%= node[:ttx_hbase][:hbase][:conf] %>/hbase-env.sh
+
+pid=$HBASE_PID_DIR/hbase-$HBASE_IDENT_STRING-<%= @script_service %>.pid
 
 cd $HBASE_HOME
 
@@ -27,7 +31,14 @@ function reload {
 }
 
 function status {
-    log_warning_msg "Status is not supported"
+#    log_warning_msg "Status is not supported"
+	if [ -f $pid ]; then
+	    echo "<%= @script_service %> is already running"
+		exit 0
+	else
+		echo "<%= @script_service %> is not running"
+		exit 1
+	fi
 }
 
 case $1 in

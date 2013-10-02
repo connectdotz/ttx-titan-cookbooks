@@ -1,17 +1,18 @@
 #!/bin/bash
+# chkconfig: 2345 95 20
+# description: hadoop-<%= @script_service %>
+# processname: java
+
 #
 # Copyright 2008-2009 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
 #
 
-#
-# hadoop-<%= @script_service %>
-#
 . /etc/rc.d/init.d/functions
 . <%= node[:ttx_hbase][:hadoop][:conf] %>/hadoop-env.sh
 
 cd $HADOOP_PREFIX
 
-pid=$HADOOP_PID_DIR/hadoop-$HADOOP_IDENT_STRING-$command.pid
+pid=$HADOOP_PID_DIR/hadoop-$HADOOP_IDENT_STRING-<%= @script_service %>.pid
 
 # set the ulimit to 32768 because hadoop needs lots of open files
 ulimit -n 32768
@@ -31,13 +32,13 @@ function reload {
 
 function status {
 #    log_warning_msg "Status is not supported"
-	if [ -f $pid ]
-	    echo "$command is already running"
+	if [ -f $pid ]; then
+	    echo "<%= @script_service %> is already running"
 		exit 0
 	else
-		echo "$command is not running"
+		echo "<%= @script_service %> is not running"
 		exit 1
-	}
+	fi
 }
 
 case $1 in
