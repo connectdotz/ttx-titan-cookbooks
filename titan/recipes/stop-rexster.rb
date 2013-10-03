@@ -5,7 +5,7 @@
 # start rexster
 #
 
-include_recipe "titan::rexster_service"
+include_recipe "titan::rexster-service"
 
 execute 'stop_rexster' do
     command '/bin/true'

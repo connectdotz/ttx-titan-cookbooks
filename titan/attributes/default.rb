@@ -11,6 +11,10 @@
 # or implied. See the License for the specific language governing permissions
 # and limitations under the License.
 
+# opsworks
+default[:titan][:opsworks][:es_layer] = 'es'
+default[:titan][:opsworks][:es_hostname_changed] = false
+
 # runtime env
 default['titan']['titan_version'] = '0.3.2'
 default['titan']['rexster_version'] = '2.3.0'

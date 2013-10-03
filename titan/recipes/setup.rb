@@ -1,38 +1,16 @@
-# Copyright 2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
-# Licensed under the Apache License, Version 2.0 (the "License"). You may not
-# use this file except in compliance with the License. A copy of the License is
-# located at
+# Copyright 2013 ConnectDotz, LLC. All Rights Reserved.
 #
-#     http://aws.amazon.com/apache2.0/
-#
-# or in the "license" file accompanying this file. This file is distributed on
-# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-# or implied. See the License for the specific language governing permissions
-# and limitations under the License.
 
 #cookbook_file "/tmp/ttx-titan-dist.tar.gz" do
 #  source "ttx-titan-dist.tar.gz"
 #end
 
+include_recipe 'titan::opsworks-context'
+include_recipe 'titan::setup-config'
+
 rexster_home = "#{node['titan']['rexster_home']}"
 titan_home = "#{node['titan']['titan_home']}"
-
-# rexster config
-template "rexster_xml" do
-  path "#{rexster_home}/rexster.xml"
-  source "rexster_xml.erb"
-  owner 'root' and mode 0644
-  action :nothing
-end
-
-template "log4j_properties" do
-  path "#{rexster_home}/log4j.properties"
-  source "log4j_properties.erb"
-  owner 'root' and mode 0644
-  action :nothing
-end
-
 log_dir="#{node['titan']['log_dir']}"
 base_dir="#{node['titan']['base_dir']}"
 
@@ -101,4 +79,10 @@ bash "install_titan" do
   notifies :create, "template[rexster_xml]", :immediately
   notifies :create, "template[log4j_properties]", :immediately
 end
+
+template "/etc/init.d/rexster" do
+  source "rexster_service_init.erb"
+  owner 'root' and mode 0755
+end
+
 
