@@ -7,6 +7,11 @@
   	</property>
 
 	<property>
+    	<name>hbase.snapshot.enabled</name>
+    	<value>true</value>
+  	</property>
+
+	<property>
     	<name>hbase.rootdir</name>
     	<value><%= (node[:ttx_hbase][:hbase][:root_dir] || node[:ttx_hbase][:hbase][:_root_dir]) %></value>
   	</property>
