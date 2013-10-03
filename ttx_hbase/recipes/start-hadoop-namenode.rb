@@ -1,8 +1,5 @@
+#
 # Copyright 2013 ConnectDotz.com, LLC. All Rights Reserved.
-#
-
-#
-# start rexster
 #
 
 include_recipe "ttx_hbase::hadoop-services"

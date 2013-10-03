@@ -1,5 +1,5 @@
 #
-# define rexster service
+# Copyright 2013 ConnectDotz.com, LLC. All Rights Reserved.
 #
 
 include_recipe "ttx_hbase::hbase-services"
