@@ -41,4 +41,19 @@
     	<value><%= node[:ttx_hbase][:zookeeper][:quorum].join(",") %></value>
   	</property>
 
+  	<property>
+    	<name>hbase.master.dns.interface</name>
+    	<value>eth0</value>
+  	</property>
+
+  	<property>
+    	<name>hbase.regionserver.dns.interface</name>
+    	<value>eth0</value>
+  	</property>
+
+  	<property>
+    	<name>hbase.zookeeper.dns.interface</name>
+    	<value>eth0</value>
+  	</property>
+
 </configuration>
