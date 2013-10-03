@@ -64,7 +64,7 @@ status() {
     fi
 
     # if PID is greater than 0 then Rexster is running, else it is not
-    return $PID
+    # return $PID
 }
 
 if [ "x$1" = "xstart" ]
@@ -85,10 +85,11 @@ then
     if [ $PID -gt 0 ]
     then
         echo "Rexster server is running with PID: $PID"
+		exit 0
     else
         echo "Rexster server is NOT running"
+		exit 1
     fi
-    exit $PID
 fi
 
 usage
