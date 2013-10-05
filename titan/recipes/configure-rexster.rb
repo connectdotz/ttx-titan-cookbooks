@@ -8,7 +8,7 @@
 
 include_recipe 'titan::opsworks-context'
 include_recipe 'titan::setup-config'
-include_recipe 'titan::rexster-services'
+include_recipe 'titan::rexster-service'
 
 execute "restart-rexster" do
 	command "echo perform configure operation"

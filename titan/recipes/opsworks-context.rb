@@ -50,7 +50,7 @@ ruby_block "update es.host_name" do
 			Chef::Log.debug("will use default es.host_name") 
 		end
 
-		Chef::Log.info( "fs_name_changed? #{node[:titan][:opsworks][:es_hostname_changed]}, host_name = #{node[:titan][:es][:host_name]}") 
+		Chef::Log.info( "es_hostname_changed? #{node[:titan][:opsworks][:es_hostname_changed]}, host_name = #{node[:titan][:es][:host_name]}") 
 		
 	end
 end
